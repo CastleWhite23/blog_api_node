@@ -5,8 +5,6 @@ router.get("/postagens", (req, res) =>{
     res.send("Todas as postagens")
 })
 
-
-
 router.get("/postagens/:id", (req, res) =>{
     const { id } = req.params
     res.send(`Postagem ${id}`)
