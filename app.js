@@ -10,7 +10,6 @@ tabelas.init(connection)
 router(app, express)
 
 
-
 app.listen(port, (error)=>{
     if(error){
         console.log(error);
