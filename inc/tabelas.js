@@ -1,5 +1,3 @@
-const { error } = require("console")
-
 class Tabelas {
     init(connection) {
         this.connection = connection
