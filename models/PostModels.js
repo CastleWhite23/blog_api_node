@@ -35,7 +35,7 @@ class PostModel{
     }
 
     criar(params){
-        const sql = `INSERT INTO post SET ?`
+        const sql = `INSERT INTO \`post\` SET ?`
 
         return new Promise((rejects, resolve)=>{
             connection.query(sql, params, (error, response)=>{
