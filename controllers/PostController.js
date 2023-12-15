@@ -28,6 +28,10 @@ class PostController {
             ))
     }
 
+    criar(params){
+        
+        const resPostModel = postModel.criar(params)
+    }
 
 }
 

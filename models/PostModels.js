@@ -34,6 +34,23 @@ class PostModel{
        
     }
 
+    criar(params){
+        const sql = `INSERT INTO post VALUES ?`
+
+        return new Promise((rejects, resolve)=>{
+            connection.query(sql, params, (error, response)=>{
+                if(error){
+                    rejects(error)
+                    return;
+                }
+
+                resolve(response)
+
+            })
+        })
+
+    }
+
 
 }
 module.exports = new PostModel()

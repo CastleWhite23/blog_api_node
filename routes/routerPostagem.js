@@ -12,9 +12,14 @@ router.get("/postagens/:id", (req, res) =>{
 })
 
 
-router.post("/criar", (req, res) =>{
-    const { id } = req.params
-    res.send(`Postagem ${id}`)
+router.post("/cadastrar/:rota", (req, res) =>{
+    const { rota } = req.params
+    const params = req.body
+    if(rota === "postagem"){
+        postController.criar(params)
+    }else if(rota === "usuario"){
+
+    }
 })
 
 
