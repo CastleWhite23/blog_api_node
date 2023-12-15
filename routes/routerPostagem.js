@@ -11,7 +11,6 @@ router.get("/postagens/:id", (req, res) =>{
 })
 
 
-
 router.post("/criar", (req, res) =>{
     const { id } = req.params
     res.send(`Postagem ${id}`)
