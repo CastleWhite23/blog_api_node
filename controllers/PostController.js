@@ -28,9 +28,12 @@ class PostController {
             ))
     }
 
-    criar(params){
-        
+    criar(res, params){
         const resPostModel = postModel.criar(params)
+
+        resPostModel
+        .then((response) => (res.status(201).json(response)))
+        .catch((error)=>( res.status(401).json(error)))
     }
 
 }
