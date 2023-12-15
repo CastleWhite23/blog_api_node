@@ -1,13 +1,14 @@
-const { Router } = require("express")
+const { Router } = require("express");
+const postController = require("../controllers/PostController");
 const router = Router(); 
 
 router.get("/postagens", (req, res) =>{
-    res.send("Todas as postagens")
+    postController.buscar(req, res);    
 })
 
 router.get("/postagens/:id", (req, res) =>{
     const { id } = req.params
-    res.send(`Postagem ${id}`)
+    postController.buscarById(res, res, id)
 })
 
 
