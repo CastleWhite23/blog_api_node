@@ -24,8 +24,9 @@ router.post("/cadastrar/:rota", (req, res) =>{
 })
 
 
-router.put("/atualizar/:id", (req, res) =>{
+router.put("/atualizar/:rota/:id", (req, res) =>{
     const { id } = req.params
+    const { rota } = req.paramas
     res.send(`Atualizar post ${id}?`)
 })
 
