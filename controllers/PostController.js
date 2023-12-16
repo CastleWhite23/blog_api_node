@@ -35,11 +35,27 @@ class PostController {
             .then((response) => res.status(201).json(response))
             .catch((error) => res.status(400).json(error))
     }
-     atualizar(){
 
-     }
 
-     
+    atualizar(req, res, params, id) {
+        const resPostModel = postModel.atualizar(params, id)
+
+        resPostModel
+            .then(
+                (postAtualizado) => (
+                    res
+                        .status(201)
+                        .json(postAtualizado)
+                ))
+            .catch(
+                (error) =>
+                    res
+                        .status(400)
+                        .json(error)
+            )
+    }
+
+
 
 }
 

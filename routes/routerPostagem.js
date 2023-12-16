@@ -26,8 +26,12 @@ router.post("/cadastrar/:rota", (req, res) =>{
 
 router.put("/atualizar/:rota/:id", (req, res) =>{
     const { id } = req.params
-    const { rota } = req.paramas
-    res.send(`Atualizar post ${id}?`)
+    const { rota } = req.params
+    const params = req.body
+
+    if(rota === "postagem"){
+        postController.atualizar(req, res, params, id)
+    }
 })
 
 
