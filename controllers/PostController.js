@@ -55,6 +55,23 @@ class PostController {
             )
     }
 
+    deletar(req, res, id) {
+        const resPostModel = postModel.deletar(id)
+
+        resPostModel
+            .then(
+                (postAtualizado) => (
+                    res
+                        .status(201)
+                        .json(postAtualizado)
+                ))
+            .catch(
+                (error) =>
+                    res
+                        .status(400)
+                        .json(error)
+            )
+    }
 
 
 }

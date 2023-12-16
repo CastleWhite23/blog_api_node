@@ -65,6 +65,21 @@ class PostModel{
         })
     }
 
+    deletar(id){
+        const sql = `DELETE FROM post WHERE id_post = ?`
+
+        return new Promise((rejects, resolve)=>{
+            connection.query(sql, id , (error, resposta)=>{
+                if(error){
+                    rejects(error)
+                    return;
+                }
+
+                resolve(resposta)
+            })
+        })
+    }
+
 
 }
 module.exports = new PostModel()

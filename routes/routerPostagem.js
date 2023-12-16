@@ -1,43 +1,48 @@
 const { Router } = require("express");
 const postController = require("../controllers/PostController");
-const router = Router(); 
+const router = Router();
 
-router.get("/postagens", (req, res) =>{
-    postController.buscar(req, res);    
+router.get("/postagens", (req, res) => {
+    postController.buscar(req, res);
 })
 
-router.get("/postagens/:id", (req, res) =>{
+router.get("/postagens/:id", (req, res) => {
     const { id } = req.params
     postController.buscarById(res, res, id)
 })
 
 
-router.post("/cadastrar/:rota", (req, res) =>{
+router.post("/cadastrar/:rota", (req, res) => {
     const { rota } = req.params
     const params = req.body
-   
 
-    if(rota === "postagem"){
+
+    if (rota === "postagem") {
         console.log(params)
-        postController.criar(res,req, params)
+        postController.criar(res, req, params)
     }
 })
 
 
-router.put("/atualizar/:rota/:id", (req, res) =>{
+router.put("/atualizar/:rota/:id", (req, res) => {
     const { id } = req.params
     const { rota } = req.params
     const params = req.body
 
-    if(rota === "postagem"){
+    if (rota === "postagem") {
         postController.atualizar(req, res, params, id)
     }
 })
 
 
-router.get("/deletar/:id", (req, res) =>{
+router.delete("/deletar/:rota/:id", (req, res) => {
     const { id } = req.params
-    res.send(`Deletar post ${id}?`)
+    const { rota } = req.params
+
+    if (rota === "postagem") {
+        postController.deletar(req, res, id)
+    }
+
 })
 
 
