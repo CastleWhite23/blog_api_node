@@ -8,7 +8,6 @@ class PostController {
     async processarPromise(promise, status, error, res) {
         try{
             const response = await promise;
-            console.log(promise)
             res.status(status)
             res.json(response)
         }catch{
@@ -31,7 +30,6 @@ class PostController {
         const resPostModel = postModel.criar(params)
         this.processarPromise(resPostModel, 201, 400, res)
     }
-
 
     atualizar(req, res, params, id) {
         const resPostModel = postModel.atualizar(params, id)
