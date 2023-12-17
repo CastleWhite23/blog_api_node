@@ -1,83 +1,48 @@
 const { error } = require("console")
 const connection = require("../inc/connection")
+const { resolve } = require("path")
+const { rejects } = require("assert")
 
 
-class PostModel{
+class PostModel {
 
-    buscar(){   
+    executarQeury(sql, params = "") {
+       return new Promise((resolve, rejects)=>{
+            connection.query(sql, params, (error, resposta)=>{
+                if(error){
+                    rejects(error)
+                    return;
+                }
+
+                resolve(resposta)
+            })
+       })
+    }
+
+    buscar() {
         const sql = `SELECT * FROM post`
-
-        return new Promise((resolve, rejects)=>{
-            connection.query(sql, (error, resposta)=>{
-                if(error){
-                    rejects(error)
-                    return;
-                }
-    
-                resolve(resposta)
-            })
-        })
-
+        this.executarQeury(sql);
     }
 
-    buscarById(id){   
+    buscarById(id) {
         const sql = `SELECT * FROM post WHERE id_post = '${id}'`
-
-        return new Promise((resolve, rejects)=>{
-            connection.query(sql, (error, resposta)=>{
-                if(error){
-                    rejects(error)
-                }
-                resolve(resposta)
-            })
-        })
-       
+        this.executarQeury(sql)
     }
 
-    criar(params){
+    criar(params) {
         const sql = `INSERT INTO \`post\` SET ?`
-
-        return new Promise((resolve, rejects)=>{
-            connection.query(sql, params, (error, response)=>{
-                if(error){
-                    rejects(error)
-                    return;
-                }
-
-                resolve(response)
-            })
-        })
-
+        this.executarQeury(sql, params)
     }
 
-    atualizar(params, id){
+    atualizar(params, id) {
         const sql = `UPDATE post SET ? WHERE id_post = ?`
-
-        return new Promise((resolve, rejects)=>{
-            connection.query(sql, [ params, id ], (error, resposta)=>{
-                if(error){
-                    rejects(error)
-                    return;
-                }
-
-                resolve(resposta)
-            })
-        })
+        this.executarQeury(sql, [params, id])
     }
 
-    deletar(id){
+    deletar(id) {
         const sql = `DELETE FROM post WHERE id_post = ?`
 
-        return new Promise((resolve, rejects)=>{
-            connection.query(sql, id , (error, resposta)=>{
-                if(error){
-                    rejects(error)
-                    return;
-                }
-
-                resolve(resposta)
-            })
-        })
+        this.executarQeury(sql, id)
     }
 
 
