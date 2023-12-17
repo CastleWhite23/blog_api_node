@@ -5,72 +5,43 @@ const { error } = require('console');
 
 class PostController {
 
+    async processarPromise(promise, status, error, res) {
+        try{
+            const response = await promise;
+            console.log(promise)
+            res.status(status)
+            res.json(response)
+        }catch{
+            res.status(error)
+        }   
+    }
+
     buscar(req, res) {
         const resPostModel = postModel.buscar()
-        resPostModel
-            .then((response) => (res.status(200).json(response)))
-            .catch((error) => (res.status(400).json(error)))
+        this.processarPromise(resPostModel, 200, 400, res)
     }
 
     buscarById(req, res, id) {
         const resPostModel = postModel.buscarById(id);
-
-        resPostModel
-            .then((response) => (
-                res
-                    .status(200)
-                    .json(response)
-            ))
-            .catch((error) => (
-                res
-                    .status(400)
-                    .json(error)
-            ))
+        this.processarPromise(resPostModel, 200, 400, res)
+       
     }
 
     criar(res, req, params) {
         const resPostModel = postModel.criar(params)
-
-        resPostModel
-            .then((response) => res.status(201).json(response))
-            .catch((error) => res.status(400).json(error))
+        this.processarPromise(resPostModel, 201, 400, res)
     }
 
 
     atualizar(req, res, params, id) {
         const resPostModel = postModel.atualizar(params, id)
 
-        resPostModel
-            .then(
-                (postAtualizado) => (
-                    res
-                        .status(201)
-                        .json(postAtualizado)
-                ))
-            .catch(
-                (error) =>
-                    res
-                        .status(400)
-                        .json(error)
-            )
+        this.processarPromise(resPostModel, 200, 400, res)
     }
 
     deletar(req, res, id) {
         const resPostModel = postModel.deletar(id)
-
-        resPostModel
-            .then(
-                (postAtualizado) => (
-                    res
-                        .status(201)
-                        .json(postAtualizado)
-                ))
-            .catch(
-                (error) =>
-                    res
-                        .status(400)
-                        .json(error)
-            )
+        this.processarPromise(resPostModel, 200, 400, res)
     }
 
 

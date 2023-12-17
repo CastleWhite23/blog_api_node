@@ -21,28 +21,28 @@ class PostModel {
 
     buscar() {
         const sql = `SELECT * FROM post`
-        this.executarQeury(sql);
+        return this.executarQeury(sql);
     }
 
     buscarById(id) {
         const sql = `SELECT * FROM post WHERE id_post = '${id}'`
-        this.executarQeury(sql)
+        return this.executarQeury(sql)
     }
 
     criar(params) {
         const sql = `INSERT INTO \`post\` SET ?`
-        this.executarQeury(sql, params)
+        return this.executarQeury(sql, params)
     }
 
     atualizar(params, id) {
         const sql = `UPDATE post SET ? WHERE id_post = ?`
-        this.executarQeury(sql, [params, id])
+        return this.executarQeury(sql, [params, id])
     }
 
     deletar(id) {
         const sql = `DELETE FROM post WHERE id_post = ?`
 
-        this.executarQeury(sql, id)
+        return this.executarQeury(sql, id)
     }
 
 
