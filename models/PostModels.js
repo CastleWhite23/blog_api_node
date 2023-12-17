@@ -7,7 +7,7 @@ class PostModel{
     buscar(){   
         const sql = `SELECT * FROM post`
 
-        return new Promise((rejects, resolve)=>{
+        return new Promise((resolve, rejects)=>{
             connection.query(sql, (error, resposta)=>{
                 if(error){
                     rejects(error)
@@ -37,7 +37,7 @@ class PostModel{
     criar(params){
         const sql = `INSERT INTO \`post\` SET ?`
 
-        return new Promise((rejects, resolve)=>{
+        return new Promise((resolve, rejects)=>{
             connection.query(sql, params, (error, response)=>{
                 if(error){
                     rejects(error)
@@ -53,7 +53,7 @@ class PostModel{
     atualizar(params, id){
         const sql = `UPDATE post SET ? WHERE id_post = ?`
 
-        return new Promise((rejects, resolve)=>{
+        return new Promise((resolve, rejects)=>{
             connection.query(sql, [ params, id ], (error, resposta)=>{
                 if(error){
                     rejects(error)
@@ -68,7 +68,7 @@ class PostModel{
     deletar(id){
         const sql = `DELETE FROM post WHERE id_post = ?`
 
-        return new Promise((rejects, resolve)=>{
+        return new Promise((resolve, rejects)=>{
             connection.query(sql, id , (error, resposta)=>{
                 if(error){
                     rejects(error)
