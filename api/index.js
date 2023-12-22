@@ -4,10 +4,16 @@ const app = express();
 const port = 8081;
 const criarTabela = require('./inc/tabelas')
 const connection = require('./inc/connection')
-
+const cors = require("cors");
 const router = require('./routes/index');
 
+const corsOptions = {
+    origin: 'http://localhost:3000/',
+  };
 
+
+
+app.use(cors(corsOptions));
 criarTabela.init(connection)
 router(app, express)
 
