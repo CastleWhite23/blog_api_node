@@ -1,4 +1,5 @@
 import axios from 'axios'
+import CardPost from './Card'
 
 const Blogs = () =>{
     //fazer requisição https para api
@@ -9,6 +10,7 @@ const Blogs = () =>{
     return (
         <>
             <h1>PAGINA DOS BLOGS</h1>
+            <Card titulo="" conteudo="" autor ="" data_criacao=""/>
         </>
     )
 }
