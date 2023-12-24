@@ -1,15 +1,12 @@
-import Navbar from "./Navbar"
+import Header from './Header'
 import './style.css'
 
 const Layout = ({ children }) => {
     return (
         <>
-            <header>
-                <Navbar />
-            </header>
+            <Header/>
             <main>
                 {children}
-
             </main>
             <footer>
                 pedro castelo 2023
