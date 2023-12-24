@@ -1,5 +1,5 @@
 import { Card, CardHeader, CardBody, CardFooter, Text, Heading} from '@chakra-ui/react'
-
+import './style.css'
 
 
 const CardPost = ({ titulo, conteudo, autor, data_criacao }) => {

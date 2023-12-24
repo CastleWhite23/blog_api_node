@@ -3,7 +3,7 @@ import { api } from "../services/api";
 import { Spinner } from '@chakra-ui/react'
 import CardPost from './Card'
 import { useEffect, useState } from 'react'
-
+import './style.css'
 
 const Blogs = () => {
     //fazer requisição https para api
