@@ -1,18 +1,21 @@
 import Navbar from "./Navbar"
 import './style.css'
 
-const Layout = ({children}) => {
+const Layout = ({ children }) => {
     return (
-    <>
-        <header>
-           <Navbar/>
-        </header>
-            { children }
-        <footer>
-            pedro castelo 2023
-        </footer>
+        <>
+            <header>
+                <Navbar />
+            </header>
+            <main>
+                {children}
 
-    </>
+            </main>
+            <footer>
+                pedro castelo 2023
+            </footer>
+
+        </>
     )
 }
 
