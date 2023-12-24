@@ -3,6 +3,7 @@ import { api } from "../services/api";
 import { Spinner } from '@chakra-ui/react'
 import CardPost from './Card'
 import { useEffect, useState } from 'react'
+import BlogLanding from "./BlogLanding"
 import './style.css'
 
 const Blogs = () => {
@@ -33,6 +34,7 @@ const Blogs = () => {
 
     return (
         <>
+            <BlogLanding />
             <div className="blogs-container">
                 {
                     allPostLoaded ? (
