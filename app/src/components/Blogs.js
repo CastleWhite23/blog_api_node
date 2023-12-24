@@ -33,19 +33,18 @@ const Blogs = () => {
 
     return (
         <>
-            <h1>PAGINA DOS BLOGS</h1>
-            {
+            <div className="blogs-container">
+                {
+                    allPostLoaded ? (
+                        postData.map(post => (
+                            <CardPost key={post.id_post} titulo={post.titulo_post} conteudo={post.conteudo_post} autor={post.autor_post} data_criacao={post.data_criacao} />
+                        ))
+                    ) : (
+                        <Spinner size='lg' />
+                    )
 
-                allPostLoaded ? (
-                    postData.map(post => (
-                        <CardPost key={post.id_post} titulo={post.titulo_post} conteudo={post.conteudo_post} autor={post.autor_post} data_criacao={post.data_criacao} />
-                    ))
-                ) : (
-                    <Spinner size='lg' />
-                )
-
-            }
-
+                }
+            </div>
         </>
     )
 }
