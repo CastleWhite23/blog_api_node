@@ -109,3 +109,11 @@ footer{
 .blog-landing div button:hover{
     opacity: .5;
 }
+
+.mais-recente{
+    font-size: 32px;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

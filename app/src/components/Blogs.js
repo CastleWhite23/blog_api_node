@@ -35,6 +35,7 @@ const Blogs = () => {
     return (
         <>
             <BlogLanding />
+            <h1 className="mais-recente">Mais recentes</h1>
             <div className="blogs-container">
                 {
                     allPostLoaded ? (
