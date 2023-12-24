@@ -1,4 +1,4 @@
-import { Card, CardHeader, CardBody, CardFooter, ControlBox } from '@chakra-ui/react'
+import { Card, CardHeader, CardBody, CardFooter, Text, Heading} from '@chakra-ui/react'
 
 
 
@@ -14,7 +14,7 @@ const CardPost = ({ titulo, conteudo, autor, data_criacao }) => {
                 </CardBody>
                 <CardFooter>
                     <Text>{ autor }</Text>
-                    <Button>View here</Button>
+                    <Text>{ data_criacao }</Text>
                 </CardFooter>
             </Card>
 
