@@ -10,14 +10,14 @@ const CardPost = ({ titulo, conteudo, autor, data_criacao }) => {
                 height={"350px"}
             >
                 <CardHeader>
-                    <Heading size='md'>{titulo}</Heading>
+                    <Heading size='lg'>{titulo}</Heading>
                 </CardHeader>
                 <CardBody>
                     <Text>{conteudo}</Text>
                 </CardBody>
                 <CardFooter>
-                    <Text>{autor}</Text>
-                    <Text>{data_criacao}</Text>
+                    <Text> {autor}</Text>
+                    <Text> {data_criacao}</Text>
                 </CardFooter>
             </Card>
 
