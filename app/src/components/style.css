@@ -8,7 +8,7 @@ header{
     border-bottom: 1px solid #303030;
 
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -27,6 +27,19 @@ nav ul li{
 nav ul li:hover{
     opacity: .5;
 }
+
+.logo{
+    font-size: 2rem;
+    font-weight: 400;
+    color:  #202020;
+    text-transform: uppercase;
+}
+
+
+
+
+
+
 
 main{
     width: 100%;
