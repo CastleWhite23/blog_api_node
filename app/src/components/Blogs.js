@@ -1,24 +1,27 @@
 
 import { api } from "../services/api";
+import { Spinner } from '@chakra-ui/react'
 import CardPost from './Card'
 import { useEffect, useState } from 'react'
 
 
-const Blogs = () =>{
+const Blogs = () => {
     //fazer requisição https para api
     //mostrar todos os posts em cards separados com props
     //colocar tudo em um display flex pra ficar bonito
     //colocar uma condição para ter spinner de carregamento
-    const [ postData, setPostData ] =  useState([])
+    const [postData, setPostData] = useState([])
+    const [allPostLoaded, setAllPostLoaded] = useState(false)
 
-    useEffect(()=>{
+    useEffect(() => {
         const getAllPosts = async () => {
-            try{
+            try {
                 const allPost = await api.get('/postagens')
                 const allPostData = allPost.data
 
                 setPostData(allPostData)
-            }catch{
+                setAllPostLoaded(true)
+            } catch {
                 console.log("deu ruim nos post")
             }
         }
@@ -32,15 +35,22 @@ const Blogs = () =>{
         <>
             <h1>PAGINA DOS BLOGS</h1>
             {
-                postData.map((post) => (
-                    <CardPost titulo={post.titulo_post} conteudo={post.conteudo_post}  autor ={post.autor_post}  data_criacao={post.data_criacao} />
-                ))
 
+                allPostLoaded ? (
+                    postData.map(post => (
+                        <CardPost key={post.id_post} titulo={post.titulo_post} conteudo={post.conteudo_post} autor={post.autor_post} data_criacao={post.data_criacao} />
+                    ))
+                ) : (
+                    <Spinner size='lg' />
+                )
 
             }
-           
+
         </>
     )
 }
 
 export default Blogs
+
+
+

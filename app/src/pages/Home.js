@@ -3,7 +3,7 @@ import Blogs  from "../components/Blogs"
 const Home = () =>{
     return (
         <>
-            <Blogs/>
+            <h1>Index com o necessario</h1>
         </>
     )
 }
