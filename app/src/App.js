@@ -17,6 +17,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />}/>
               <Route path="/postagens" element={<Blogs />}/>
+              <Route path="/postagens/novo" element={<Blogs />}/>
               {/* no home vai ter o get started com uma landing page, é pra ter uma pg pros posts */}
             </Routes>
           </Layout>
