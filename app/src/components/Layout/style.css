@@ -1,0 +1,19 @@
+
+main{
+    max-width: 100%;
+    min-height: 100vh;
+    padding: 4rem;
+}
+
+footer{
+    margin-top: 7rem;
+    width: 100%;
+    padding: 4rem;
+    background-color: #303030;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
