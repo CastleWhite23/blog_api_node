@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ChakraProvider } from '@chakra-ui/react'
 import Home from './pages/Home'
-import Layout from './components/Layout'
-import Blogs from './components/Blogs';
-import NovoPost from './components/NovoPost';
+import Layout from './components/Layout/Layout'
+import Blogs from './components/Blogs/Blogs';
+import NovoPost from './components/NovoPost/NovoPost';
 function App() {
   //aqui tera os components dos links do reac-router-dom
   //aqui tera os components e o app context
