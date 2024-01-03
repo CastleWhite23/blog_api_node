@@ -1,0 +1,13 @@
+.layout{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1000px;
+    gap:2rem;
+}
+.mini-post{
+    width: 100px;
+    height: 100px;
+    border: 2px solid #303030;
+
+}
