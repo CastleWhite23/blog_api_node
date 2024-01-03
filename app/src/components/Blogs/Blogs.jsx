@@ -2,6 +2,7 @@
 import { api } from "../../services/api";
 import { Spinner } from '@chakra-ui/react'
 import CardPost from '../Card/Card'
+import Slider from "../Slider/Slider";
 import { useEffect, useState } from 'react'
 import './style.css'
 
@@ -33,6 +34,9 @@ const Blogs = () => {
 
     return (
         <>
+            <div className="slider">
+                <Slider />
+            </div>
             <h1 className="mais-recente">Mais recentes</h1>
             <div className="blogs-container">
                 {
