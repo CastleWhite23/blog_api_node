@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ChakraProvider } from '@chakra-ui/react'
-import Home from './pages/Home'
+import Home from './pages/Home/Home'
 import Layout from './components/Layout/Layout'
 import Blogs from './components/Blogs/Blogs';
 import NovoPost from './components/NovoPost/NovoPost';

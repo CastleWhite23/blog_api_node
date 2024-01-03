@@ -3,21 +3,3 @@ body{
     height: 100%;
 }
 
-
-main{
-    max-width: 100%;
-    min-height: 100vh;
-    padding: 4rem;
-}
-
-footer{
-    width: 100%;
-    padding: 4rem;
-    background-color: #303030;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
