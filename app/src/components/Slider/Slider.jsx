@@ -6,7 +6,7 @@ const Slider = () => {
     return(
         <>
              <div className='slider'>
-                    oi
+                   slider com 5 ou 6 historias mais recentes com titulo e autor só
              </div>
         </>
     )

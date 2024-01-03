@@ -1,5 +1,7 @@
 .slider{
-    max-width: 1000px;
+    max-width: 1120px;
+    width: 1120px;
     height: 400px;
-    background-color: #303030;
+    border: 5px solid #303030;
+    border-radius: 15px;
 }
