@@ -34,21 +34,24 @@ const Blogs = () => {
 
     return (
         <>
-            <div className="slider">
-                <Slider />
-            </div>
-            <h1 className="mais-recente">Mais recentes</h1>
-            <div className="blogs-container">
-                {
-                    allPostLoaded ? (
-                        postData.map(post => (
-                            <CardPost key={post.id_post} titulo={post.titulo_post} conteudo={post.conteudo_post} autor={post.autor_post} data_criacao={post.data_criacao} />
-                        ))
-                    ) : (
-                        <Spinner size='lg' />
-                    )
+            <div className="posts">
+                <h1 className="mais-recente">Veja as hisórias mais recentes</h1>
+                <div className="slider">
+                    <Slider />
+                </div>
 
-                }
+                <div className="blogs-container">
+                    {
+                        allPostLoaded ? (
+                            postData.map(post => (
+                                <CardPost key={post.id_post} titulo={post.titulo_post} conteudo={post.conteudo_post} autor={post.autor_post} data_criacao={post.data_criacao} />
+                            ))
+                        ) : (
+                            <Spinner size='lg' />
+                        )
+
+                    }
+                </div>
             </div>
         </>
     )
