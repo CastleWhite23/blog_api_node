@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 import './style.css'
+import { api } from "../services/api"
 
 
 const NovoPost = () => {

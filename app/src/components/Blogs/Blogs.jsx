@@ -1,7 +1,7 @@
 
-import { api } from "../services/api";
+import { api } from "../../services/api";
 import { Spinner } from '@chakra-ui/react'
-import CardPost from './Card'
+import CardPost from '../Card/Card'
 import { useEffect, useState } from 'react'
 import BlogLanding from "./BlogLanding"
 import './style.css'
