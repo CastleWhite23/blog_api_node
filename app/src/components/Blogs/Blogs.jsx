@@ -3,6 +3,7 @@ import { api } from "../../services/api";
 import { Spinner } from '@chakra-ui/react'
 import CardPost from '../Card/Card'
 import Slider from "../Slider/Slider";
+import MiniSlider from "../MiniSlider/MiniSlider";
 import { useEffect, useState } from 'react'
 import './style.css'
 
@@ -39,7 +40,9 @@ const Blogs = () => {
                 <div className="slider">
                     <Slider />
                 </div>
-
+                <div>
+                   <MiniSlider/>
+                </div>
                 <div className="blogs-container">
                     {
                         allPostLoaded ? (
