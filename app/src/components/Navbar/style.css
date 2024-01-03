@@ -1,0 +1,16 @@
+
+nav ul{
+    display: flex;
+    gap: 2rem;
+}
+
+nav ul li{
+    list-style: none;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: .2s all ease-in-out;
+}
+nav ul li:hover{
+    opacity: .5;
+}
