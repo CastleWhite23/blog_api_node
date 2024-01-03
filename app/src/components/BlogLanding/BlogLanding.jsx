@@ -12,6 +12,13 @@ const BlogLanding = () => {
     return (
         <>
             <div className="blog-landing">
+                <div>
+                    <h1> Explore e Compartilhe no Nosso Universo de Histórias!</h1>
+                    <p>
+                        Seja muito bem-vindo ao nosso blog, um universo cativante dedicado a proporcionar a você uma jornada única de descobertas, inspiração e compartilhamento de experiências pessoais. Estamos verdadeiramente emocionados por tê-lo como parte integrante desta vibrante comunidade!
+                    </p>
+                    <button>Compartilhe suas historias!</button>
+                </div>
                 {
                     imgLink ? (
                         <img src={imgNote}></img>
@@ -19,14 +26,6 @@ const BlogLanding = () => {
                         <Spinner size='lg' />
                     )
                 }
-
-                <div>
-                    <h1> Explore e Compartilhe no Nosso Universo de Histórias!</h1>
-                    <p>
-                    Seja muito bem-vindo ao nosso blog, um universo cativante dedicado a proporcionar a você uma jornada única de descobertas, inspiração e compartilhamento de experiências pessoais. Estamos verdadeiramente emocionados por tê-lo como parte integrante desta vibrante comunidade!
-                    </p>
-                    <button>Compartilhe suas historias!</button>
-                </div>
             </div>
         </>
     )
