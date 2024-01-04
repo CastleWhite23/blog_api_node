@@ -10,7 +10,6 @@ const MiniSlider = () => {
             <div className="mini-post"></div>
             <div className="mini-post"></div>
             <div className="mini-post"></div>
-            <div className="mini-post"></div>
         </div>
         </>
     )
