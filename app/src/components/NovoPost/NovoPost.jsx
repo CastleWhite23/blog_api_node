@@ -11,7 +11,18 @@ const NovoPost = () => {
     const [titulo, setTitulo] = useState("")
     const [historia, setHistoria] = useState("")
     const autor = "Pedro"
-    const data_criacao = "2023/08/25"
+    const dataAtual = new Date();
+
+    const ano = dataAtual.getFullYear();
+    const mes = dataAtual.getMonth() + 1; // Os meses começam do zero, então você precisa adicionar 1
+    const dia = dataAtual.getDate();
+    const hora = dataAtual.getHours();
+    const minuto = dataAtual.getMinutes();
+    const segundo = dataAtual.getSeconds();
+
+    
+    const data_criacao = `${ano}/${mes}/${dia} ${hora}:${minuto}:${segundo}`;
+    
 
     const handleCriarPostClick = () => {
         createPost(titulo, historia, autor, data_criacao)
