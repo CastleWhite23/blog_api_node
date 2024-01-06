@@ -19,14 +19,12 @@ router.post("/postagens/novo", (req, res) => {
 })
 
 
-router.put("/atualizar/:rota/:id", (req, res) => {
+router.put("/postagens/editar/:id", (req, res) => {
     const { id } = req.params
-    const { rota } = req.params
     const params = req.body
 
-    if (rota === "postagem") {
-        postController.atualizar(req, res, params, id)
-    }
+    postController.atualizar(req, res, params, id)
+
 })
 
 
