@@ -17,6 +17,10 @@ const CardPost = ({ key_post, titulo, conteudo, autor, data_criacao }) => {
                 </CardHeader>
                 <CardBody>
                     <Text>{conteudo}</Text>
+                    <Text> {autor}</Text>
+                    <Text> {data_criacao}</Text>
+                </CardBody>
+                <CardFooter>
                     <Button
                         backgroundColor={"#303030"}
                         color={"#fff"}
@@ -24,10 +28,13 @@ const CardPost = ({ key_post, titulo, conteudo, autor, data_criacao }) => {
                     >
                       <Link to={`/postagens/editar/${key_post}`}>Editar</Link>
                     </Button>
-                </CardBody>
-                <CardFooter>
-                    <Text> {autor}</Text>
-                    <Text> {data_criacao}</Text>
+                    <Button
+                        backgroundColor={"#303030"}
+                        color={"#fff"}
+                        size='lg'
+                    >
+                      <Link to={`/postagens/excluir/${key_post}`}>Excluir</Link>
+                    </Button>
                 </CardFooter>
             </Card>
 
