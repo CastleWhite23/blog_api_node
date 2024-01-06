@@ -5,6 +5,7 @@ import BlogPage from './pages/BlogPage/BlogPage'
 import NovoPostPage from './pages/NovoPostPage/NovoPostPage'
 import CadUsuarioPage from './pages/CadUsuarioPage/CadUsuarioPage'
 import LoginPage from './pages/LoginPage/LoginPage'
+import EditarPostPage from './pages/EditarPostPage/EditarPostPage'
 
 
 
@@ -28,6 +29,7 @@ function App() {
 
               <Route path="/postagens" element={<BlogPage />} />
               <Route path="/postagens/novo" element={<NovoPostPage />} />
+              <Route path="/postagens/editar/:key" element={<EditarPostPage />} />
 
               {/* Rotas referentes ao usuario */}
               <Route path="/usuario/cadastro" element={<CadUsuarioPage />} />
