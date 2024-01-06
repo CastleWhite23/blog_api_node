@@ -29,9 +29,10 @@ const Blogs = () => {
         }
 
         getAllPosts()
-        console.log(postData)
+
 
     }, [])
+
 
     return (
         <>
@@ -44,16 +45,18 @@ const Blogs = () => {
                    <MiniSlider/>
                 </div>
                 <div className="blogs-container">
+                    
                     {
                         allPostLoaded ? (
                             postData.map(post => (
-                                <CardPost key={post.id_post} titulo={post.titulo_post} conteudo={post.conteudo_post} autor={post.autor_post} data_criacao={post.data_criacao} />
+                                <CardPost key={post.id_post}  key_post ={post.id_post} titulo={post.titulo_post} conteudo={post.conteudo_post} autor={post.autor_post} data_criacao={post.data_criacao} />
                             ))
                         ) : (
                             <Spinner size='lg' />
                         )
 
                     }
+
                 </div>
             </div>
         </>
