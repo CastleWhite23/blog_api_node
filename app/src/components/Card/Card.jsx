@@ -1,8 +1,11 @@
 import { Card, CardHeader, CardBody, CardFooter, Text, Heading , Button } from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
 import './style.css'
+import { keyboard } from '@testing-library/user-event/dist/keyboard'
 
 
-const CardPost = ({ titulo, conteudo, autor, data_criacao }) => {
+const CardPost = ({ key_post, titulo, conteudo, autor, data_criacao }) => {
+ 
     return (
         <>
             <Card
@@ -10,7 +13,7 @@ const CardPost = ({ titulo, conteudo, autor, data_criacao }) => {
                 height={"350px"}
             >
                 <CardHeader>
-                    <Heading size='lg'>{titulo}</Heading>
+                <Heading size='lg'>{titulo}</Heading>
                 </CardHeader>
                 <CardBody>
                     <Text>{conteudo}</Text>
@@ -19,7 +22,7 @@ const CardPost = ({ titulo, conteudo, autor, data_criacao }) => {
                         color={"#fff"}
                         size='lg'
                     >
-                      Editar
+                      <Link to={`/postagens/editar/${key_post}`}>Editar</Link>
                     </Button>
                 </CardBody>
                 <CardFooter>
