@@ -1,9 +1,10 @@
 /* eslint-disable no-undef */
-import { Textarea, Input, Center, Button, ButtonGroup } from '@chakra-ui/react'
+import { Textarea, Input, Center, Button } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 import './style.css'
 import { api } from "../../services/api"
 import { useState } from 'react'
+import { getData } from '../../services/getData'
 
 
 const NovoPost = () => {
@@ -11,17 +12,7 @@ const NovoPost = () => {
     const [titulo, setTitulo] = useState("")
     const [historia, setHistoria] = useState("")
     const autor = "Pedro"
-    const dataAtual = new Date();
-
-    const ano = dataAtual.getFullYear();
-    const mes = dataAtual.getMonth() + 1; // Os meses começam do zero, então você precisa adicionar 1
-    const dia = dataAtual.getDate();
-    const hora = dataAtual.getHours();
-    const minuto = dataAtual.getMinutes();
-    const segundo = dataAtual.getSeconds();
-
-    
-    const data_criacao = `${ano}/${mes}/${dia} ${hora}:${minuto}:${segundo}`;
+    const data_criacao = getData();
     
 
     const handleCriarPostClick = () => {
