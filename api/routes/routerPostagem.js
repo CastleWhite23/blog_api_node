@@ -28,13 +28,12 @@ router.put("/postagens/editar/:id", (req, res) => {
 })
 
 
-router.delete("/deletar/:rota/:id", (req, res) => {
+router.delete("/psotagens/excluir/:id", (req, res) => {
     const { id } = req.params
-    const { rota } = req.params
 
-    if (rota === "postagem") {
-        postController.deletar(req, res, id)
-    }
+
+
+    postController.deletar(req, res, id)
 
 })
 
