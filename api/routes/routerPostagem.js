@@ -28,7 +28,7 @@ router.put("/postagens/editar/:id", (req, res) => {
 })
 
 
-router.delete("/psotagens/excluir/:id", (req, res) => {
+router.delete("/postagens/excluir/:id", (req, res) => {
     const { id } = req.params
 
 
