@@ -22,7 +22,7 @@ class UsuarioModel {
      }
  
      excluirCadastro(id) {
-         const sql = `DELETE FROM usuario WHERE id_post = ?`
+         const sql = `DELETE FROM usuario WHERE id_user = ?`
 
          return executarQuery(sql, id)
      }
