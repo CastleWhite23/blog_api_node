@@ -3,8 +3,7 @@ class UsuarioController{
 
     }
 
-    todosCadastros(){
-
+    buscarCadastros(){
     }
 
     cadastro(){
