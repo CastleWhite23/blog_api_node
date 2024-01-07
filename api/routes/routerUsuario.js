@@ -25,4 +25,4 @@ router.delete("/conta/excluir", (req, res) =>{
 })
 
 
-module.exports  = router
+module.exports = router
