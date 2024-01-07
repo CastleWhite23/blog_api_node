@@ -1,7 +1,7 @@
 
 const { response } = require('express');
 const postModel = require('../models/PostModels');
-import { processarPromise } from '../utilities/processarPromise';
+const processarPromise =  require('../utilities/processarPromise');
 const { error } = require('console');
 
 class PostController {
