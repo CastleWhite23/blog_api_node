@@ -1,4 +1,6 @@
-export const executarQuery = (sql, params = "") => {
+const connection = require("../inc/connection")
+
+const executarQuery = (sql, params = "") => {
     return new Promise((resolve, rejects)=>{
          connection.query(sql, params, (error, resposta)=>{
              if(error){
@@ -10,3 +12,5 @@ export const executarQuery = (sql, params = "") => {
          })
     })
  }
+
+module.exports = executarQuery
