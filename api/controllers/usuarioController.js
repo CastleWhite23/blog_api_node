@@ -1,20 +1,20 @@
 class UsuarioController{
-    login(){
+    login(req, res){
 
     }
 
-    buscarCadastros(){
+    buscarCadastros(req, res){
     }
 
-    cadastro(){
-
-    }
-
-    atualizarCadastro(){
+    cadastro(req, res){
 
     }
 
-    excluirCadastro(){
+    atualizarCadastro(req, res){
+
+    }
+
+    excluirCadastro(req, res){
 
     }
 
