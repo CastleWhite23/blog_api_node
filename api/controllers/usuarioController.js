@@ -12,15 +12,18 @@ class UsuarioController{
     }
 
     cadastro(req, res){
-
+        const resUserModel = usuarioModel.cadastrar(req.body)
+        processarPromise(resUserModel, 201, 400, res)   
     }
 
     atualizarCadastro(req, res){
-
+        const resUserModel = usuarioModel.atualizarCadastrp(req.body, req.params.id)
+        processarPromise(resUserModel, 200, 400, res)
     }
 
     excluirCadastro(req, res){
-
+        const resUserModel = usuarioModel.excluirCadastro(req.params.id)
+        processarPromise(resUserModel, 204, 400, res)
     }
 
 }
