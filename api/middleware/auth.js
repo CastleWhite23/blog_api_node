@@ -1,0 +1,1 @@
+//arquivo responsavel por verificar se existe ou não um token jwt
