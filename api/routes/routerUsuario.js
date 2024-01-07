@@ -1,28 +1,18 @@
 import { Router } from "express";
+const usuarioController = require("../controllers/usuarioController");
 const router = Router();
 
 
-router.get("/contas", (req, res) =>{
 
-})
+router.get("/contas", usuarioController.buscarCadastros)
 
-router.post("/conta/login", (req, res) =>{
+router.post("/conta/login",usuarioController.login)
 
-})
+router.post("/conta/cadastro", usuarioController.cadastro)
 
-router.post("/conta/cadastro", (req, res) =>{
+router.put("/conta/atualizar", usuarioController.atualizarCadastro)
 
-})
-
-
-router.put("/conta/atualizar", (req, res) =>{
-    
-})
-
-
-router.delete("/conta/excluir", (req, res) =>{
-    
-})
+router.delete("/conta/excluir", usuarioController.excluirCadastro)
 
 
 module.exports = router
