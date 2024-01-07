@@ -1,4 +1,5 @@
-import { processarPromise } from "../utilities/processarPromise"
+const processarPromise  = require( "../utilities/processarPromise")
+const usuarioModel  = require("../models/usuarioModel")
 class UsuarioController{
    
     login(req, res){
@@ -6,6 +7,8 @@ class UsuarioController{
     }
 
     buscarCadastros(req, res){
+        const resUserModel = usuarioModel.buscarCadastros()
+        processarPromise(resUserModel, 200, 400, res)
     }
 
     cadastro(req, res){
