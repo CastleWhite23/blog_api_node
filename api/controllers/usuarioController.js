@@ -1,14 +1,6 @@
+import { processarPromise } from "../utilities/processarPromise"
 class UsuarioController{
-    async processarPromise(promise, status, error, res) {
-        try{
-            const response = await promise;
-            res.status(status)
-            res.json(response)
-        }catch{
-            res.status(error)
-        }   
-    }
-
+   
     login(req, res){
 
     }
