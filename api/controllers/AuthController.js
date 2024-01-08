@@ -9,12 +9,13 @@ class AuthController{
         const response = await usuarioModel.verificaConta(username, senha)
 
         if(response){
-            const realizarLogin = authModel.login(response[0].username)
+            const realizarLogin = authModel.login(req, response[0].username)
+            console.log(realizarLogin)
             if(!realizarLogin.token){
-                res.status(201).JSON({message: "login nao realizado"})
+                res.status(400).json({message: "login nao realizado"})
             }
             
-            res.status(200).JSON({message: "login realizado com sucesso"})
+            res.status(200).json({message: "login realizado com sucesso"})
         }
 
         res.send(JSON.stringify({message: "Login nao realizado"}))
