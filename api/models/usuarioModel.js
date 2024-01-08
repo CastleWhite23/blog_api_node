@@ -13,10 +13,6 @@ class UsuarioModel {
             }
 
             return response
-
-
-
-
     }
 
 
