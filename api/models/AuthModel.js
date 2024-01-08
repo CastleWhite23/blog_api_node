@@ -10,6 +10,7 @@ class AuthModel{
             //responsavel por gerar o token jwt e colocar nos cookies
             try{
                 const token =  jwt.sign({username: username}, process.env.SECRET)
+                localStorage.setItem('token', token)
                 return {message: 'token gerado', token: token, auth: true}
             }catch(e){
                 if(e){
