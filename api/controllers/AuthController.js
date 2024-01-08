@@ -10,10 +10,10 @@ class AuthController{
 
         if(response){
             const realizarLogin = authModel.login(response[0].username)
-            res.send(JSON.stringify(realizarLogin))
+            
         }
 
-        res.send(JSON.stringify({message: "token nao gerado"}))
+        res.send(JSON.stringify({message: "Login nao realizado"}))
         //verificar os dados da conta
         //se for true func para gerar token e colocar nos cookies do navegador
 
