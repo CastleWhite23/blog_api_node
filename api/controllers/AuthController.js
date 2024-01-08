@@ -10,7 +10,11 @@ class AuthController{
 
         if(response){
             const realizarLogin = authModel.login(response[0].username)
+            if(!realizarLogin.token){
+                res.status(201).JSON({message: "login nao realizado"})
+            }
             
+            res.status(200).JSON({message: "login realizado com sucesso"})
         }
 
         res.send(JSON.stringify({message: "Login nao realizado"}))
