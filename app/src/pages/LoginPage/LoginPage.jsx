@@ -1,9 +1,9 @@
-import Blogs from '../../components/Blogs/Blogs';
+
 
 const LoginPage = () =>{
     return(
         <>
-            <Blogs/>
+            <h1>Forms de login</h1>
         </>
     )
 }
