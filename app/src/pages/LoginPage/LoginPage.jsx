@@ -1,9 +1,9 @@
-
+import Login from "../../components/Login/Login"
 
 const LoginPage = () =>{
     return(
         <>
-            <h1>Forms de login</h1>
+            <Login />
         </>
     )
 }
