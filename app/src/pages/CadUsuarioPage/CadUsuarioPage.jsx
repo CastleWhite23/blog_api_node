@@ -1,9 +1,9 @@
-import Blogs from '../../components/Blogs/Blogs';
+
 
 const CadUsuarioPage = () =>{
     return(
         <>
-            <Blogs/>
+            <h1>Forms de cad</h1>
         </>
     )
 }
