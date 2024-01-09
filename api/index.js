@@ -5,6 +5,7 @@ const port = 8081;
 const criarTabela = require('./inc/tabelas')
 const connection = require('./inc/connection')
 const cors = require("cors");
+const cookieParser = require('cookie-parser');
 const router = require('./routes/index');
 
 // const corsOptions = {
@@ -14,6 +15,7 @@ const router = require('./routes/index');
 
 
 app.use(cors());
+app.use(cookieParser())
 criarTabela.init(connection)
 router(app, express)
 
