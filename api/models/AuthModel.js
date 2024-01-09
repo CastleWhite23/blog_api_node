@@ -5,11 +5,11 @@ const jwt = require('jsonwebtoken');
 
 
 class AuthModel{
-        login(req, username){
-           
+        login(res, username){
             //responsavel por gerar o token jwt e colocar nos cookies
             try{
                 const token =  jwt.sign({username: username}, process.env.SECRET)
+                res.cookie('token', token, { httpOnly: true})
                 return {message: 'token gerado', token: token, auth: true}
             }catch(e){
                 console.log(e)
