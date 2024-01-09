@@ -1,7 +1,7 @@
 import { BrowserRouter } from 'react-router-dom'
 import { ChakraProvider } from '@chakra-ui/react'
 
-import MainRoutes from '../components/MainRoutes/MainRoutes'
+import MainRoutes from './components/MainRoutes/MainRoutes'
 
 
 import Layout from './components/Layout/Layout'
