@@ -34,8 +34,8 @@ function App() {
               <Route path="/postagens/excluir/:key" element={<ExcluirPostPage />} />
 
               {/* Rotas referentes ao usuario */}
-              <Route path="/usuario/cadastro" element={<CadUsuarioPage />} />
-              <Route path="/usuario/login" element={<LoginPage />} />
+              <Route path="/usuarios/cadastro" element={<CadUsuarioPage />} />
+              <Route path="/usuarios/login" element={<LoginPage />} />
               
               {/* no home vai ter o get started com uma landing page, é pra ter uma pg pros posts */}
             </Routes>
