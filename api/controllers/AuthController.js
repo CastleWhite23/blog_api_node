@@ -9,16 +9,17 @@ class AuthController{
         const response = await usuarioModel.verificaConta(username, senha)
 
         if(response){
-            const realizarLogin = authModel.login(req, response[0].username)
-            console.log(realizarLogin)
+            const realizarLogin = authModel.login(res, response[0].username)
+            // console.log(realizarLogin)
+            // console.log(res.headers)
             if(!realizarLogin.token){
-                res.status(400).json({message: "login nao realizado"})
+                return res.status(400).json({message: "login nao realizado"})
             }
-            
-            res.status(200).json({message: "login realizado com sucesso"})
+
+            return res.status(200).json({message: "login realizado com sucesso"})
         }
 
-        res.send(JSON.stringify({message: "Login nao realizado"}))
+        return res.send(JSON.stringify({message: "Login nao realizado"}))
         //verificar os dados da conta
         //se for true func para gerar token e colocar nos cookies do navegador
 
