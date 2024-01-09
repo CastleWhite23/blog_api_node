@@ -18,7 +18,7 @@ const BlogLanding = () => {
                     <p>
                         Seja muito bem-vindo ao nosso blog, um universo cativante dedicado a proporcionar a você uma jornada única de descobertas, inspiração e compartilhamento de experiências pessoais. Estamos verdadeiramente emocionados por tê-lo como parte integrante desta vibrante comunidade!
                     </p>
-                    <Link to="/usuarios/login"> <button>Compartilhe suas historias!</button></Link>
+                    <Link to="/postagens/novo"> <button>Compartilhe suas historias!</button></Link>
                 </div>
                 {
                     imgLink ? (
