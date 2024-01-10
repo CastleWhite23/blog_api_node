@@ -1,25 +1,33 @@
 const usuarioModel = require("../models/usuarioModel")
 const authModel = require("../models/AuthModel")
 
-class AuthController{
-       
-     async login(req, res){
-        //o objetivo dessa rota é se o usuario for o correto e as infos baterem entao gerar um token e deixa-lo no cookie do navegador
+class AuthController {
+
+    async login(req, res) {
         const { username, senha } = req.body
+
+        if (!username || !senha) res.status(400).json({ error: "Preencha todos os campos" })
+
+        //faz uma chamada ao serv pra ver se existe a conta
         const response = await usuarioModel.verificaConta(username, senha)
 
-        if(response){
-            const realizarLogin = authModel.login(res, response[0].username)
-            // console.log(realizarLogin)
-            // console.log(res.headers)
-            if(!realizarLogin.token){
-                return res.status(400).json({message: "login nao realizado"})
-            }
-
-            return res.status(200).json({message: "login realizado com sucesso"})
+        //verifica se existe a mensagem de erro envolvendo a conta
+        if (response.message) {
+            return res.status(400).json(response.message)
         }
 
-        return res.send(JSON.stringify({message: "Login nao realizado"}))
+        //senão existe a mesnagem de erro
+
+        //leva pra func que gera o token e coloca nos cookies
+        const realizarLogin = authModel.login(res, response[0].username)
+        if (!realizarLogin.auth) {
+            return res.status(400).json({ message: "login nao realizado" })
+        }
+
+        return res.status(200).json({ token: response.token, message: "login realizado com sucesso" })
+
+
+
         //verificar os dados da conta
         //se for true func para gerar token e colocar nos cookies do navegador
 
@@ -28,4 +36,4 @@ class AuthController{
 }
 
 
-module.exports =  new AuthController()
+module.exports = new AuthController()
