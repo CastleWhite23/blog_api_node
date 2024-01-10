@@ -4,7 +4,7 @@ import { createContext, useState } from "react"
 
 export const AppContext = createContext()
 
-const AppContextProvider = ( { children } ) =>{
+export const AppContextProvider = ( { children } ) =>{
     const [tokenAuth, setTokenAuth] = useState("")
 
     return(
@@ -16,4 +16,3 @@ const AppContextProvider = ( { children } ) =>{
     )
 }
 
-export default AppContextProvider
