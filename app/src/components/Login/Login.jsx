@@ -23,7 +23,7 @@ const Login = () => {
             senha: senha
         })
         .then((res) => {
-            api.get('/contas').then((res) => (console.log(res))).catch((e) => (console.log(e)))
+            console.log(res)
         }) 
         .catch((e) => (console.log(e)))
     }
