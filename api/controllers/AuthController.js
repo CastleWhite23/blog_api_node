@@ -19,7 +19,7 @@ class AuthController {
             return res.status(400).json({ message: "login nao realizado" })
         }
 
-        return res.status(200).json({ token: response.token, message: "login realizado com sucesso" })
+        return res.status(200).json({ token: realizarLogin.token, message: "login realizado com sucesso" })
     }
 }
 
