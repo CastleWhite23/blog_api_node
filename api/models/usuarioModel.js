@@ -1,5 +1,5 @@
 const executarQuery = require("../utilities/executarQuery")
-
+const criptografiaClass = require("../utilities/CriptografiaClass")
 class UsuarioModel {
 
     async verificaConta(username, senha) {
@@ -28,6 +28,11 @@ class UsuarioModel {
 
     cadastrar(params) {
         const sql = `INSERT INTO \`usuario\` SET ?`
+        const senha = params.password;
+        const novaSenha = criptografiaClass.criptografar(senha)
+
+        params.password = novaSenha;
+
         return executarQuery(sql, params)
     }
 
