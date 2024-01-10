@@ -3,11 +3,17 @@ import { Spinner } from '@chakra-ui/react'
 import {  Link} from 'react-router-dom'
 import imgNote from '../../imgs/d62b63d1-ae1a-4563-a7aa-bf9d57239935.jpeg';
 import { useEffect, useState } from "react";
+import { createContext } from "react";
+import { AppContext } from '../AppContext/AppContext'
+
 const BlogLanding = () => {
     const [imgLink, setImgLink] = useState("")
+    const { token } = createContext(AppContext)
 
     useEffect(() => {
         setImgLink(imgNote)
+
+        
     }, [])
 
     return (
