@@ -2,7 +2,8 @@
 import { InputGroup, InputRightElement, Input, Center, Button } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 import { api } from "../../services/api"
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { AppContext } from '../AppContext/AppContext'
 
 
 const Login = () => {
@@ -11,7 +12,7 @@ const Login = () => {
     const handleClick = () => setShow(!show)
     const navigate = useNavigate()
     const [username, setUsername] = useState("")
-    const [token, setTokenAuth] = useState("")
+    const { setTokenAuth } = useContext(AppContext)
     const [senha, setSenha] = useState("")
 
     const handleClickLogar = () => {
