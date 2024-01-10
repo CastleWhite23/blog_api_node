@@ -2,8 +2,9 @@
 const jwt = require('jsonwebtoken')
 require('dotenv').config()
 const verificaToken = (req, res, next) => {
-    const token = req.cookies.token
-    // console.log(token)
+    console.log(req.headers)
+    const token = req.body.token || req.query.token || req.headers['x-access-token'] || req.cookies.token;
+    console.log(token)
 
     if (!token) return res.status(401).json({ message: 'Precisa realizar o login antes.' });
 
