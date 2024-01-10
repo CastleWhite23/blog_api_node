@@ -11,6 +11,7 @@ const Login = () => {
     const handleClick = () => setShow(!show)
     const navigate = useNavigate()
     const [username, setUsername] = useState("")
+    const [token, setTokenAuth] = useState("")
     const [senha, setSenha] = useState("")
 
     const handleClickLogar = () => {
@@ -23,9 +24,16 @@ const Login = () => {
             senha: senha
         })
         .then((res) => {
-            console.log(res)
+            setTokenAuth(res.data.token)
         }) 
         .catch((e) => (console.log(e)))
+
+        api.get("/contas", {
+            headers: {
+                'Authorization': `token ${token}`
+            }
+        }).then(res => (console.log(res)))
+        .catch(err => (console.log(err)))
     }
 
     return (
