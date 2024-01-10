@@ -19,7 +19,7 @@ class AuthController {
         //senão existe a mesnagem de erro
 
         //leva pra func que gera o token e coloca nos cookies
-        const realizarLogin = authModel.login(res, response[0].username)
+        const realizarLogin = authModel.login(res, response.username)
         if (!realizarLogin.auth) {
             return res.status(400).json({ message: "login nao realizado" })
         }
