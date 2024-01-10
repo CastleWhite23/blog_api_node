@@ -8,8 +8,8 @@ class UsuarioModel {
         const sql = `SELECT * FROM usuario WHERE username = ? AND password = ?`
             const response = await executarQuery(sql, [username, senha])
             //verificar se exisite um usuario com aqueles dados
-            if (!response.data) {
-                return response
+            if (!response[0]){
+                return {message: "Usuario ou senha Inválidos"}
             }
 
             return response
