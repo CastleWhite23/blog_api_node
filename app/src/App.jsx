@@ -2,8 +2,8 @@ import { BrowserRouter } from 'react-router-dom'
 import { ChakraProvider } from '@chakra-ui/react'
 
 import MainRoutes from './components/MainRoutes/MainRoutes'
-import AppContextProvider from './components/AppContext/AppContext'
-
+import { AppContextProvider } from './components/AppContext/AppContext'
+ 
 
 import Layout from './components/Layout/Layout'
 
