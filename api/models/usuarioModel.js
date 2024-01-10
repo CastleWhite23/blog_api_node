@@ -4,14 +4,20 @@ class UsuarioModel {
 
     async verificaConta(username, senha) {
         //criptografia da senha
-        const sql = `SELECT * FROM usuario WHERE username = ? AND password = ?`
-            const response = await executarQuery(sql, [username, senha])
+        const sql = `SELECT * FROM usuario WHERE username = ?`
+            const usuario = await executarQuery(sql, username)
             //verificar se exisite um usuario com aqueles dados
-            if (!response[0]){
-                return {message: "Usuario ou senha Inválidos"}
+            if (!usuario[0]){
+                return {message: "Usuario Inválido"}
             }
 
-            return response
+            const isValidPassword = criptografiaClass.validar(senha, usuario[0].password)
+
+            if(!isValidPassword){
+                return {message: "Senha Inválida"}
+            }   
+
+            return usuario[0]
     }
 
 
