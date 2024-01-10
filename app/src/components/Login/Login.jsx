@@ -27,14 +27,15 @@ const Login = () => {
             setTokenAuth(res.data.token)
         }) 
         .catch((e) => (console.log(e)))
-
-        api.get("/contas", {
-            headers: {
-                'Authorization': `token ${token}`
-            }
-        }).then(res => (console.log(res)))
-        .catch(err => (console.log(err)))
     }
+
+    //     api.get("/contas", {
+    //         headers: {
+    //             'Authorization': `token ${token}`
+    //         }
+    //     }).then(res => (console.log(res)))
+    //     .catch(err => (console.log(err)))
+    // }
 
     return (
         <>
