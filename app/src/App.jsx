@@ -2,6 +2,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { ChakraProvider } from '@chakra-ui/react'
 
 import MainRoutes from './components/MainRoutes/MainRoutes'
+import AppContextProvider from './components/AppContext/AppContext'
 
 
 import Layout from './components/Layout/Layout'
@@ -16,11 +17,13 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <ChakraProvider>
-          <Layout>
-            <MainRoutes/>
-          </Layout>
-        </ChakraProvider>
+        <AppContextProvider>
+          <ChakraProvider>
+            <Layout>
+              <MainRoutes />
+            </Layout>
+          </ChakraProvider>
+        </AppContextProvider>
       </BrowserRouter>
     </>
   );
