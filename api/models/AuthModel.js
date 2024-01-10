@@ -9,7 +9,7 @@ class AuthModel{
             //responsavel por gerar o token jwt e colocar nos cookies
             try{
                 const token =  jwt.sign({username: username}, process.env.SECRET)
-                 res.headers('token', token, { httpOnly: true})
+                 res.cookie('token', token, { httpOnly: true})
                 return {message: 'token gerado', auth: true, token: token}
             }catch(e){
                 console.log(e)
