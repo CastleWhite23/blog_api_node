@@ -15,7 +15,6 @@ const Login = () => {
 
     const handleClickLogar = () => {
         login(username, senha)
-        navigate("/postagens")
     };
 
     const login = (username, senha) => {
@@ -23,6 +22,10 @@ const Login = () => {
             username: username,
             senha: senha
         })
+        .then((res) => {
+            api.get('/contas').then((res) => (console.log(res))).catch((e) => (console.log(e)))
+        }) 
+        .catch((e) => (console.log(e)))
     }
 
     return (
@@ -43,7 +46,7 @@ const Login = () => {
                         <Input
                             pr='4.5rem'
                             type={show ? 'text' : 'password'}
-                            placeholder='Enter password'
+                            placeholder='Digite sua senha'
                             value={senha}
                             onChange={(e) => {
                                 setSenha(e.target.value)
