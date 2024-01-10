@@ -1,6 +1,5 @@
-const { error } = require("console")
 const executarQuery = require("../utilities/executarQuery")
-const e = require("express")
+
 class UsuarioModel {
 
     async verificaConta(username, senha) {
