@@ -9,19 +9,12 @@ class AuthModel{
             //responsavel por gerar o token jwt e colocar nos cookies
             try{
                 const token =  jwt.sign({username: username}, process.env.SECRET)
-                res.cookie('token', token, { httpOnly: true})
-                return {message: 'token gerado', token: token, auth: true}
+                 res.headers('token', token, { httpOnly: true})
+                return {message: 'token gerado', auth: true, token: token}
             }catch(e){
                 console.log(e)
-                return {message: 'Erro na geracao de token', token: "", auth: false}
+                return {message: 'Não foi possivel gerar token',  auth: false, token: ""}
             }
-            // jwt.verify(token, process.env.SECRET, (err, decoded) =>{
-            //     if (err) {
-            //         console.error('Erro ao verificar o token:', err.message);
-            //       } else {
-            //         console.log('Token verificado com sucesso. Dados decodificados:', decoded);
-            //       }
-            // })
             
         }
 }
