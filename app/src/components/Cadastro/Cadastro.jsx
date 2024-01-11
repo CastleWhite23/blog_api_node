@@ -1,32 +1,31 @@
 /* eslint-disable no-undef */
-import { Textarea, Input, Center, Button } from '@chakra-ui/react'
+import { InputGroup, InputRightElement, Input, Center, Button } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
-import './style.css'
 import { api } from "../../services/api"
 import { useState } from 'react'
-import { getData } from '../../services/getData'
 
 
 const Cadastro = () => {
+    const [show, setShow] = useState(false)
+    const handleClick = () => setShow(!show)
     const  navigate =  useNavigate()
-    const [titulo, setTitulo] = useState("")
-    const [historia, setHistoria] = useState("")
-    const autor = "Pedro"
-    const data_criacao = getData();
+    const [nome, setNome] = useState("")
+    const [senha, setSenha] = useState("")
+    const [username, setUsername] = useState("")
+    const [email, setEmail] = useState("")
     
 
-    const handleCriarPostClick = () => {
-        createPost(titulo, historia, autor, data_criacao)
-        navigate("/postagens")
+    const handleCriarConta = () => {
+        createPost(nome, username, email, senha)
+        navigate("/usuarios/login")
     };
 
-    const createPost = (titulo, historia, autor, data_criacao) => {
-        api.post('/postagens/novo', {
-            titulo_post: titulo,
-            conteudo_post: historia,
-            autor_post: autor,
-            data_criacao: data_criacao,
-            data_alteracao: data_criacao
+    const createPost = (nome, username, email, senha) => {
+        api.post('/conta/cadastro', {
+            nome: nome,
+            username: username,
+            email: email,
+            password: senha
         })
     }
 
@@ -38,27 +37,56 @@ const Cadastro = () => {
                     <h1>Compartilhe sua história</h1>
                     <Input
                         variant='flushed'
-                        placeholder='Digite o titulo'
+                        placeholder='Qual o seu nome completo?'
                         fontSize={20}
-                        value={titulo}
+                        value={nome}
                         onChange={(e) => {
-                            setTitulo(e.target.value)
+                            setNome(e.target.value)
                         }}
                     />
-                    <Textarea
-                        height={10}
-                        value={historia}
+                    <Input
+                        variant='flushed'
+                        placeholder='Qual o sera Seu Username?'
+                        fontSize={20}
+                        value={username}
                         onChange={(e) => {
-                            setHistoria(e.target.value)
+                            setUsername(e.target.value)
                         }}
                     />
+                    <Input
+                        variant='flushed'
+                        placeholder='Digite o seu email:'
+                        fontSize={20}
+                        value={email}
+                        onChange={(e) => {
+                            setEmail(e.target.value)
+                        }}
+                    />
+                    <InputGroup >
+                        <Input
+                             variant='flushed'
+                            type={show ? 'text' : 'password'}
+                            placeholder='Digite sua senha:'
+                            value={senha}
+                            onChange={(e) => {
+                                setSenha(e.target.value)
+                            }}
+                        />
+                        <InputRightElement width='4.5rem'>
+                            <Button h='1.75rem' size='sm' onClick={handleClick}>
+                                {show ? 'Hide' : 'Show'}
+                            </Button>
+                        </InputRightElement>
+                    </InputGroup>
+                    
+                    
                     <Button
                         backgroundColor={"#303030"}
                         color={"#fff"}
                         size='lg'
-                        onClick={handleCriarPostClick}
+                        onClick={handleCriarConta}
                     >
-                        Compartilhar
+                        Criar Conta
                     </Button>
                 </Center>
             </form>
