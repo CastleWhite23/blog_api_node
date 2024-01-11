@@ -2,9 +2,8 @@
 import { InputGroup, InputRightElement, Input, Center, Button } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 import { api } from "../../services/api"
-import { useState, useContext } from 'react'
-import { AppContext } from '../AppContext/AppContext'
-
+import { useState } from 'react'
+import { setCookie } from '../../services/funcCookies'
 
 const Login = () => {
     //form para pegar as infos de usuario, fazer as verificacoes da api e se tudo der certo logar propriamente
@@ -12,12 +11,14 @@ const Login = () => {
     const handleClick = () => setShow(!show)
     const navigate = useNavigate()
     const [username, setUsername] = useState("")
-    const { setTokenAuth } = useContext(AppContext)
+    // const { setTokenAuth } = useContext(AppContext)
     const [senha, setSenha] = useState("")
+    
+      
 
     const handleClickLogar = () => {
         login(username, senha)
-    };
+    }
 
     const login = (username, senha) => {
         api.post('/conta/login', {
@@ -25,9 +26,12 @@ const Login = () => {
             senha: senha
         })
         .then((res) => {
-            setTokenAuth(res.data.token)
+            setCookie('token', res.data.token)
+            //document.cookies = `token=${res.data.token}; HttpOnly`;
+            
         }) 
         .catch((e) => (console.log(e)))
+        navigate("/postagens/novo")
     }
 
     //     api.get("/contas", {
@@ -54,7 +58,6 @@ const Login = () => {
                     />
                     <InputGroup size='md'>
                         <Input
-                            pr='4.5rem'
                             type={show ? 'text' : 'password'}
                             placeholder='Digite sua senha'
                             value={senha}
