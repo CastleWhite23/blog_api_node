@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const postController = require("../controllers/PostController");
+const verificaToken =  require("../middleware/auth")
 const router = Router();
 
 router.get("/postagens", (req, res) => {
@@ -12,14 +13,14 @@ router.get("/postagens/:id", (req, res) => {
 })
 
 
-router.post("/postagens/novo", (req, res) => {
+router.post("/postagens/novo", verificaToken, (req, res) => {
     const params = req.body
 
         postController.criar(res, req, params)
 })
 
 
-router.put("/postagens/editar/:id", (req, res) => {
+router.put("/postagens/editar/:id", verificaToken, (req, res) => {
     const { id } = req.params
     const params = req.body
 
@@ -28,7 +29,7 @@ router.put("/postagens/editar/:id", (req, res) => {
 })
 
 
-router.delete("/postagens/excluir/:id", (req, res) => {
+router.delete("/postagens/excluir/:id", verificaToken, (req, res) => {
     const { id } = req.params
 
 
