@@ -9,8 +9,8 @@ const router = express.Router();
 router.get("/contas", verificaToken, usuarioController.buscarCadastros);
 router.post("/conta/login", authController.login);
 router.post("/conta/cadastro", usuarioController.cadastro);
-router.put("/conta/atualizar/:id", usuarioController.atualizarCadastro);
-router.delete("/conta/excluir/:id", usuarioController.excluirCadastro);
+router.put("/conta/atualizar/:id",verificaToken, usuarioController.atualizarCadastro);
+router.delete("/conta/excluir/:id",verificaToken, usuarioController.excluirCadastro);
 
 module.exports = router;
 
