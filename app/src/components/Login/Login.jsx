@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { InputGroup, InputRightElement, Input, Center, Button } from '@chakra-ui/react'
+import { InputGroup, InputRightElement, Input, Center, Button, Spinner } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 import { api } from "../../services/api"
 import { useState } from 'react'
@@ -8,16 +8,17 @@ import { setCookie } from '../../services/funcCookies'
 const Login = () => {
     //form para pegar as infos de usuario, fazer as verificacoes da api e se tudo der certo logar propriamente
     const [show, setShow] = useState(false)
+    const [btnLogin, setBtnLogin] = useState(false)
     const handleClick = () => setShow(!show)
     const navigate = useNavigate()
     const [username, setUsername] = useState("")
     // const { setTokenAuth } = useContext(AppContext)
     const [senha, setSenha] = useState("")
-    
-      
 
     const handleClickLogar = () => {
+        setBtnLogin(true)
         login(username, senha)
+
     }
 
     const login = (username, senha) => {
@@ -25,13 +26,15 @@ const Login = () => {
             username: username,
             senha: senha
         })
-        .then((res) => {
-            setCookie('token', res.data.token)
-            //document.cookies = `token=${res.data.token}; HttpOnly`;
-            
-        }) 
-        .catch((e) => (console.log(e)))
-        navigate("/postagens/novo")
+            .then((res) => {
+                setCookie('token', res.data.token)
+                navigate("/usuarios/conta")
+                window.location.reload()
+
+                //document.cookies = `token=${res.data.token}; HttpOnly`;
+            })
+            .catch((e) => (console.log(e)))
+
     }
 
     //     api.get("/contas", {
@@ -52,6 +55,7 @@ const Login = () => {
                         placeholder='Digite o username'
                         fontSize={20}
                         value={username}
+                        required
                         onChange={(e) => {
                             setUsername(e.target.value)
                         }}
@@ -61,6 +65,7 @@ const Login = () => {
                             type={show ? 'text' : 'password'}
                             placeholder='Digite sua senha'
                             value={senha}
+                            required
                             onChange={(e) => {
                                 setSenha(e.target.value)
                             }}
@@ -75,9 +80,17 @@ const Login = () => {
                         backgroundColor={"#303030"}
                         color={"#fff"}
                         size='lg'
+                        type='submit'
                         onClick={handleClickLogar}
                     >
-                        Entrar
+                        {
+                            !btnLogin
+                                ?
+                                <>Entrar</>
+                                :
+                                <Spinner size='lg' />
+                        }
+
                     </Button>
                 </Center>
             </form>
