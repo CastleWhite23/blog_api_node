@@ -24,15 +24,16 @@ const MainRoutes = () => {
 
                 <Route path="/postagens" element={<BlogPage />} />
 
-                <Route path="/postagens/novo" element={tokenAuth? <NovoPostPage /> : <LoginPage/>} />
-                <Route path="/postagens/editar/:key" element={tokenAuth? <EditarPostPage />  : <LoginPage/>} />
-                <Route path="/postagens/excluir/:key" element={tokenAuth?  <ExcluirPostPage />  : <LoginPage/>} />
+                <Route path="/postagens/novo" element={tokenAuth ? <NovoPostPage /> : <LoginPage />} />
+                <Route path="/postagens/editar/:key" element={tokenAuth ? <EditarPostPage /> : <LoginPage />} />
+                <Route path="/postagens/excluir/:key" element={tokenAuth ? <ExcluirPostPage /> : <LoginPage />} />
 
 
 
                 {/* Rotas referentes ao usuario */}
-                <Route path="/usuarios/cadastro" element={!tokenAuth ? <CadUsuarioPage />: <ContaUsuarioPage/>} />
-                <Route path="/usuarios/login" element={!tokenAuth ? <LoginPage />: <ContaUsuarioPage/>} />
+                <Route path="/usuarios/cadastro" element={!tokenAuth ? <CadUsuarioPage /> : <ContaUsuarioPage />} />
+                <Route path="/usuarios/login" element={!tokenAuth ? <LoginPage /> : <ContaUsuarioPage />} />
+                <Route path="/usuarios/conta" element={tokenAuth ? <ContaUsuarioPage /> : <LoginPage />} />
 
                 {/* no home vai ter o get started com uma landing page, é pra ter uma pg pros posts */}
             </Routes>
