@@ -1,5 +1,16 @@
 /* eslint-disable no-undef */
-import { InputGroup, InputRightElement, Input, Center, Button, Spinner } from '@chakra-ui/react'
+import {
+    InputGroup,
+    InputRightElement,
+    Input,
+    Center,
+    Button,
+    Spinner,
+    Alert,
+    AlertIcon,
+    AlertTitle,
+    AlertDescription,
+} from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 import { api } from "../../services/api"
 import { useState } from 'react'
@@ -9,10 +20,10 @@ const Login = () => {
     //form para pegar as infos de usuario, fazer as verificacoes da api e se tudo der certo logar propriamente
     const [show, setShow] = useState(false)
     const [btnLogin, setBtnLogin] = useState(false)
+    const [error, setError] = useState("")
     const handleClick = () => setShow(!show)
     const navigate = useNavigate()
     const [username, setUsername] = useState("")
-    // const { setTokenAuth } = useContext(AppContext)
     const [senha, setSenha] = useState("")
 
     const handleClickLogar = () => {
@@ -31,10 +42,14 @@ const Login = () => {
                 navigate("/usuarios/conta")
                 window.location.reload()
 
-                //document.cookies = `token=${res.data.token}; HttpOnly`;
-            })
-            .catch((e) => (console.log(e)))
 
+                //documnt.cookies = `token=${res.data.token}; HttpOnly`;
+            })
+            .catch((err) => {
+                setBtnLogin(false)
+                setError(err.response.data)
+                console.log(error)
+            })
     }
 
     //     api.get("/contas", {
@@ -50,6 +65,18 @@ const Login = () => {
             <form>
                 <Center flexDirection={"column"} rowGap={10}>
                     <h1>Entrar no Blog</h1>
+                    {
+                        error &&
+                        <>
+                            <Alert status='error'>
+                                <AlertIcon />
+                                {
+                                    error
+                                }
+                            </Alert>
+                        </>
+                    }
+
                     <Input
                         variant='flushed'
                         placeholder='Digite o username'
@@ -80,7 +107,6 @@ const Login = () => {
                         backgroundColor={"#303030"}
                         color={"#fff"}
                         size='lg'
-                        type='submit'
                         onClick={handleClickLogar}
                     >
                         {
