@@ -30,7 +30,7 @@ class PostController {
 
     deletar(req, res, id) {
         const resPostModel = postModel.deletar(id)
-        processarPromise(resPostModel, 200, 400, res)
+        processarPromise(resPostModel, 204, 400, res)
     }
 }
 
