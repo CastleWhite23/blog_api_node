@@ -5,9 +5,12 @@ import { api } from "../../services/api"
 import { useEffect, useState } from 'react'
 import { getData } from '../../services/getData'
 import { getPostById } from '../../services/getPosts'
+import { AppContext } from '../AppContext/AppContext'
+import { useContext } from 'react'
 
 
 const EditarPost = () => {
+    const { tokenAuth} = useContext(AppContext)
     const  navigate =  useNavigate()
     const { key } = useParams();
     const [titulo, setTitulo] = useState("")
@@ -39,6 +42,10 @@ const EditarPost = () => {
             titulo_post: titulo,
             conteudo_post: historia,
             data_alteracao: data_alteracao
+        }, {
+            headers: {
+                'Authorization': `token ${tokenAuth}`
+            }
         })
     }
 
