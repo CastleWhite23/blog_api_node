@@ -32,8 +32,6 @@ router.put("/postagens/editar/:id", verificaToken, (req, res) => {
 router.delete("/postagens/excluir/:id", verificaToken, (req, res) => {
     const { id } = req.params
 
-
-
     postController.deletar(req, res, id)
 
 })
