@@ -4,6 +4,7 @@ require('dotenv').config()
 const verificaToken = (req, res, next) => {
     const tokenHeader = req.headers['authorization']
     const token = tokenHeader && tokenHeader.split(" ")[1];
+    console.log(token)
 
 
     if (!token) return res.status(401).json({ message: 'Não autorizado' });
