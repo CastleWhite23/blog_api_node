@@ -26,7 +26,7 @@ class PostModel {
     deletar(id) {
         const sql = `DELETE FROM post WHERE id_post = ?`
 
-        return this.executarQuery(sql, id)
+        return executarQuery(sql, id)
     }
 
 
