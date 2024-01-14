@@ -14,7 +14,6 @@ import { AppContext } from '../AppContext/AppContext'
 
 const MainRoutes = () => {
     const { tokenAuth } = useContext(AppContext)
-    const navigate = useNavigate()
 
     return (
         <>
