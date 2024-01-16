@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { InputGroup, InputRightElement, Input, Center, Button } from '@chakra-ui/react'
+import { InputGroup, InputRightElement, Input, Center, Button, Alert, AlertIcon } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 import { api } from "../../services/api"
 import { useState } from 'react'
@@ -13,11 +13,12 @@ const Cadastro = () => {
     const [senha, setSenha] = useState("")
     const [username, setUsername] = useState("")
     const [email, setEmail] = useState("")
+    const [error, setError] = useState("")
     
 
     const handleCriarConta = () => {
         createPost(nome, username, email, senha)
-        navigate("/usuarios/login")
+        
     };
 
     const createPost = (nome, username, email, senha) => {
@@ -26,7 +27,15 @@ const Cadastro = () => {
             username: username,
             email: email,
             password: senha
-        })
+        }).then((data)=>{
+            console.log(data)
+            navigate("/usuarios/login")}
+        )
+        .catch(err => {
+            console.log(err)
+            setError(err)
+        }
+        )
     }
 
 
@@ -35,6 +44,18 @@ const Cadastro = () => {
             <form>
                 <Center flexDirection={"column"} rowGap={10}>
                     <h1>Compartilhe sua história</h1>
+                    {
+                        error &&
+                        <>
+                            <Alert status='error'>
+                                <AlertIcon />
+                                {
+                                    error
+                                }
+                            </Alert>
+                        </>
+                    }
+
                     <Input
                         variant='flushed'
                         placeholder='Qual o seu nome completo?'
