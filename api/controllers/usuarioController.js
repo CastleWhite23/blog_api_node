@@ -7,8 +7,10 @@ class UsuarioController{
         processarPromise(resUserModel, 200, 400, res)
     }
 
-    cadastro(req, res){
+     cadastro(req, res){
+
         const resUserModel = usuarioModel.cadastrar(req.body)
+        console.log(resUserModel)
         processarPromise(resUserModel, 201, 400, res)   
     }
 
