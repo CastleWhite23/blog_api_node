@@ -10,6 +10,10 @@ class UsuarioController{
      cadastro(req, res){
 
         const resUserModel = usuarioModel.cadastrar(req.body)
+        if (resUserModel[0].message) {
+            console.log("sss")
+            return res.status(400).json(resUserModel[0].message)
+        }
         console.log(resUserModel)
         processarPromise(resUserModel, 201, 400, res)   
     }
