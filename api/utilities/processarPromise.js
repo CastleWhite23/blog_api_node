@@ -3,6 +3,7 @@ const processarPromise = async (promise, status, error, res) => {
         const response = await promise;
         res.status(status)
         res.json(response)
+        console.log(response)
     }catch{
         res.status(error)
     }   
