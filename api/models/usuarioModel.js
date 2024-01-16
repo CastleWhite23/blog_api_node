@@ -32,11 +32,15 @@ class UsuarioModel {
         return executarQuery(sql)
     }
 
+    buscarByUsername(username) {
+        const sql = `SELECT * FROM usuario WHERE username = '${username}'`
+        return executarQuery(sql)
+    }
+
     cadastrar(params) {
         const sql = `INSERT INTO \`usuario\` SET ?`
         const senha = params.password;
         const novaSenha = criptografiaClass.criptografar(senha)
-
         params.password = novaSenha;
 
         return executarQuery(sql, params)
