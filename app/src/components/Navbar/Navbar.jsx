@@ -1,10 +1,12 @@
 /* eslint-disable no-undef */
 import { Link } from "react-router-dom"
+import { useContext } from "react"
 import './style.css'
+import { AppContext } from "../AppContext/AppContext"
 
 
 const Navbar = () => {
-  
+    const { tokenAuth } = useContext(AppContext)
 
     return (
         <>
