@@ -1,6 +1,7 @@
 
 const { response } = require('express');
 const postModel = require('../models/PostModels');
+const usuarioModel = require("../models/usuarioModel")
 const processarPromise =  require('../utilities/processarPromise');
 const { error } = require('console');
 
@@ -17,8 +18,13 @@ class PostController {
        
     }
 
-    criar(res, req, params) {
+    async criar(res, req, params) {
+        const usuario =  await usuarioModel.buscarByUsername(params.fk_id_user)
+        params.autor_post = usuario[0].username
+        params.fk_id_user = usuario[0].id_user
+
         const resPostModel = postModel.criar(params)
+        
         processarPromise(resPostModel, 201, 400, res)
     }
 
