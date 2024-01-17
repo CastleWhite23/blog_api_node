@@ -20,7 +20,7 @@ const CardPost = ({ key_post, titulo, conteudo, autor, data_criacao }) => {
                     <Text> {autor}</Text>
                     <Text> {data_criacao}</Text>
                 </CardBody>
-                <CardFooter>
+                {/* <CardFooter>
                     <Button
                         backgroundColor={"#303030"}
                         color={"#fff"}
@@ -35,7 +35,7 @@ const CardPost = ({ key_post, titulo, conteudo, autor, data_criacao }) => {
                     >
                       <Link to={`/postagens/excluir/${key_post}`}>Excluir</Link>
                     </Button>
-                </CardFooter>
+                </CardFooter> */}
             </Card>
 
 
