@@ -38,8 +38,8 @@ class UsuarioModel {
     }
 
     async cadastrar(params) {
-        const usernameIsUnic =  await this.buscarByUsername(params.username)
-        if(usernameIsUnic[0]) return {message: 'Username já existe!'}
+        const usuarioExiste =  await this.buscarByUsername(params.username)
+        if(usuarioExiste[0]) return {message: 'Username já existe!'}
 
         const sql = `INSERT INTO \`usuario\` SET ?`
         const senha = params.password;
