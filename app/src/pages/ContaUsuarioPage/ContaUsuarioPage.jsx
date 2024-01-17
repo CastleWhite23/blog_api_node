@@ -1,7 +1,9 @@
+import ContaUsuario from "../../components/ContaUsuario/ContaUsuario"
+
 const ContaUsuarioPage = () =>{
     return(
         <>
-            <h1>Informações da conta do ususairo</h1>
+            <ContaUsuario/>
         </>
     )
 
