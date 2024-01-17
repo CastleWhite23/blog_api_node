@@ -3,7 +3,7 @@ import { Textarea, Input, Center, Button } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 import './style.css'
 import { api } from "../../services/api"
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import { getData } from '../../services/getData'
 import { AppContext } from '../AppContext/AppContext'
 
@@ -14,20 +14,19 @@ const NovoPost = () => {
     const [historia, setHistoria] = useState("")
     const { tokenAuth } = useContext(AppContext)
     
-    const autor = "Pedro"
+
     const data_criacao = getData();
 
 
     const handleCriarPostClick = () => {
-        createPost(titulo, historia, autor, data_criacao)
+        createPost(titulo, historia, data_criacao)
         navigate("/postagens")
     };
 
-    const createPost = (titulo, historia, autor, data_criacao) => {
+    const createPost = (titulo, historia,  data_criacao) => {
         api.post('/postagens/novo', {
             titulo_post: titulo,
             conteudo_post: historia,
-            autor_post: autor,
             data_criacao: data_criacao,
             data_alteracao: data_criacao
         }, {
