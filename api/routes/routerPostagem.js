@@ -15,8 +15,9 @@ router.get("/postagens/:id", (req, res) => {
 
 router.post("/postagens/novo", verificaToken, (req, res) => {
     const params = req.body
+    params.fk_id_user = res.locals.username
 
-        postController.criar(res, req, params)
+    postController.criar(res, req, params)
 })
 
 
