@@ -8,17 +8,17 @@ import { useState } from 'react'
 const Cadastro = () => {
     const [show, setShow] = useState(false)
     const handleClick = () => setShow(!show)
-    const  navigate =  useNavigate()
+    const navigate = useNavigate()
     const [nome, setNome] = useState("")
     const [senha, setSenha] = useState("")
     const [username, setUsername] = useState("")
     const [email, setEmail] = useState("")
     const [error, setError] = useState("")
-    
+
 
     const handleCriarConta = () => {
         createPost(nome, username, email, senha)
-        
+
     };
 
     const createPost = (nome, username, email, senha) => {
@@ -27,15 +27,13 @@ const Cadastro = () => {
             username: username,
             email: email,
             password: senha
-        }).then((data)=>{
-            console.log(data)
-            navigate("/usuarios/login")}
-        )
-        .catch(err => {
-            console.log(err)
-            setError(err)
-        }
-        )
+        })
+            .then(() => {
+                navigate("/usuarios/login")
+            })
+            .catch((err) => {
+                setError(err.response.data)
+            })
     }
 
 
@@ -43,7 +41,7 @@ const Cadastro = () => {
         <>
             <form>
                 <Center flexDirection={"column"} rowGap={10}>
-                    <h1>Compartilhe sua história</h1>
+                    <h1>Crie sua conta</h1>
                     {
                         error &&
                         <>
@@ -85,7 +83,7 @@ const Cadastro = () => {
                     />
                     <InputGroup >
                         <Input
-                             variant='flushed'
+                            variant='flushed'
                             type={show ? 'text' : 'password'}
                             placeholder='Digite sua senha:'
                             value={senha}
@@ -99,8 +97,8 @@ const Cadastro = () => {
                             </Button>
                         </InputRightElement>
                     </InputGroup>
-                    
-                    
+
+
                     <Button
                         backgroundColor={"#303030"}
                         color={"#fff"}
