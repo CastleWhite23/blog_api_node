@@ -7,14 +7,13 @@ class UsuarioController{
         processarPromise(resUserModel, 200, 400, res)
     }
 
-     cadastro(req, res){
+     async cadastro(req, res){
 
-        const resUserModel = usuarioModel.cadastrar(req.body)
-        if (resUserModel[0].message) {
-            console.log("sss")
-            return res.status(400).json(resUserModel[0].message)
+        const resUserModel = await usuarioModel.cadastrar(req.body)
+        if (resUserModel.message) {
+            return res.status(400).json(resUserModel.message)
         }
-        console.log(resUserModel)
+
         processarPromise(resUserModel, 201, 400, res)   
     }
 
