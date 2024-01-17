@@ -1,17 +1,10 @@
 /* eslint-disable no-undef */
 import { Link } from "react-router-dom"
-import { useContext } from "react"
 import './style.css'
-import { AppContext } from "../AppContext/AppContext"
-import { deleteCookie } from "../../services/funcCookies"
 
 
 const Navbar = () => {
-    const { tokenAuth, setTokenAuth } = useContext(AppContext)
-    const handleClickDeslogar = () =>{
-        deleteCookie('token')
-        setTokenAuth("")
-    }
+  
 
     return (
         <>
