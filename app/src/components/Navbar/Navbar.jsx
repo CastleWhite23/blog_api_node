@@ -27,7 +27,8 @@ const Navbar = () => {
                                 <li><Link to="/usuarios/cadastro">Cadastro</Link></li>
                             </>
                         ) : (
-                            <li onClick={handleClickDeslogar}>Deslogar</li>
+                            <li><Link to="/usuarios/conta">Sua conta</Link></li>
+                            // <li onClick={handleClickDeslogar}>Deslogar</li>
                         )
                     }
 
