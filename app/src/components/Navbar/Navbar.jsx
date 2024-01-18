@@ -22,7 +22,12 @@ const Navbar = () => {
                                 <li><Link to="/usuarios/cadastro">Cadastro</Link></li>
                             </>
                         ) : (
-                            <li><Link to="/usuarios/conta">Sua conta</Link></li>
+                            <>
+
+                                <li><Link to="/usuarios/posts">Minhas Historias</Link></li>
+                                <li><Link to="/usuarios/conta">Sua conta</Link></li>
+                            </>
+
                             // <li onClick={handleClickDeslogar}>Deslogar</li>
                         )
                     }
