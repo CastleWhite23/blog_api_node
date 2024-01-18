@@ -7,6 +7,7 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/contas", verificaToken, usuarioController.buscarCadastros);
+router.get("/usuario/posts", verificaToken, usuarioController.meusPosts);
 router.post("/conta/login", authController.login);
 router.post("/conta/cadastro", usuarioController.cadastro);
 router.put("/conta/atualizar/:id",verificaToken, usuarioController.atualizarCadastro);
