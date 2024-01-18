@@ -1,0 +1,32 @@
+.posts{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: -1rem;
+}
+.blogs-container{
+    max-width: 1300px;
+    width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 5rem;
+}
+
+
+.mais-recente{
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.slider{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
