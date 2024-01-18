@@ -1,10 +1,9 @@
 import { Card, CardHeader, CardBody, CardFooter, Text, Heading , Button } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
-import './style.css'
 import { keyboard } from '@testing-library/user-event/dist/keyboard'
 
 
-const CardPost = ({ key_post, titulo, conteudo, autor, data_criacao }) => {
+const CardEditavel = ({ key_post, titulo, conteudo, autor, data_criacao }) => {
  
     return (
         <>
@@ -43,4 +42,4 @@ const CardPost = ({ key_post, titulo, conteudo, autor, data_criacao }) => {
     )
 }
 
-export default CardPost
+export default CardEditavel
