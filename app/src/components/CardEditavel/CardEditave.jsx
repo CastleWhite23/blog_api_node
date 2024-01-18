@@ -1,7 +1,7 @@
 import { Card, CardHeader, CardBody, CardFooter, Text, Heading , Button } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 import { keyboard } from '@testing-library/user-event/dist/keyboard'
-
+import "./style.css"
 
 const CardEditavel = ({ key_post, titulo, conteudo, autor, data_criacao }) => {
  
@@ -15,7 +15,7 @@ const CardEditavel = ({ key_post, titulo, conteudo, autor, data_criacao }) => {
                 <Heading size='lg'>{titulo}</Heading>
                 </CardHeader>
                 <CardBody>
-                    <Text>{conteudo}</Text>
+                    <Text className='paragrafo-limitado'>{conteudo}</Text>
                     <Text> {autor}</Text>
                     <Text> {data_criacao}</Text>
                 </CardBody>
