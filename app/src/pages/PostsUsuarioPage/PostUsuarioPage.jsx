@@ -1,9 +1,9 @@
-
+import UsuarioPost from '../../components/UsuarioPost/UsuarioPost'
 
 const PostUsuarioPage = () =>{
     return(
         <>
-            <h2>Pagina dos posts do usuario logado</h2>
+            <UsuarioPost />
 
         </>
     )
