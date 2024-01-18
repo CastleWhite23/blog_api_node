@@ -6,6 +6,13 @@ class UsuarioController{
         const resUserModel = usuarioModel.buscarCadastros()
         processarPromise(resUserModel, 200, 400, res)
     }
+    
+    async meusPosts(req, res){
+        //retornar os posts onde o fk id user do post é igual ao id do usuario logado
+        const usuario = await usuarioModel.buscarByUsername(res.locals.username)
+        const resUserModel = await usuarioModel.meusPosts(usuario[0].id_user)
+        processarPromise(resUserModel, 200, 400, res)
+    }
 
      async cadastro(req, res){
 
