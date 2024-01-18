@@ -37,6 +37,11 @@ class UsuarioModel {
         return executarQuery(sql)
     }
 
+    meusPosts(id_user){
+        const sql = `SELECT * FROM post INNER JOIN usuario ON  usuario.id_user = post.fk_id_user  WHERE usuario.id_user = ?`
+        return executarQuery(sql, id_user)
+    }
+
     async cadastrar(params) {
         const usuarioExiste =  await this.buscarByUsername(params.username)
         if(usuarioExiste[0]) return {message: 'Username já existe!'}
