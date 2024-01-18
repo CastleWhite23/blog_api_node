@@ -9,6 +9,7 @@ import ExcluirPostPage from '../../pages/ExcluirPostPage/ExcluirPostPage'
 import ContaUsuarioPage from '../../pages/ContaUsuarioPage/ContaUsuarioPage'
 import { useContext } from 'react'
 import { AppContext } from '../AppContext/AppContext'
+import PostUsuarioPage from '../../pages/PostsUsuarioPage/PostUsuarioPage'
 
 
 
@@ -33,6 +34,7 @@ const MainRoutes = () => {
                 <Route path="/usuarios/cadastro" element={!tokenAuth ? <CadUsuarioPage /> : <ContaUsuarioPage />} />
                 <Route path="/usuarios/login" element={!tokenAuth ? <LoginPage /> : <ContaUsuarioPage />} />
                 <Route path="/usuarios/conta" element={tokenAuth ? <ContaUsuarioPage /> : <LoginPage />} />
+                <Route path="/usuarios/posts" element={tokenAuth ? <PostUsuarioPage /> : <LoginPage />} />
 
                 {/* no home vai ter o get started com uma landing page, é pra ter uma pg pros posts */}
             </Routes>
