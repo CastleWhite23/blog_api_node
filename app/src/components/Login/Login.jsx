@@ -7,9 +7,7 @@ import {
     Button,
     Spinner,
     Alert,
-    AlertIcon,
-    AlertTitle,
-    AlertDescription,
+    AlertIcon
 } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 import { api } from "../../services/api"
@@ -26,19 +24,20 @@ const Login = () => {
     const [username, setUsername] = useState("")
     const [senha, setSenha] = useState("")
 
-    const handleClickLogar = () => {
+    const handleClickLogar = async () => {
         setBtnLogin(true)
-        login(username, senha)
+        await login(username, senha)
 
     }
 
-    const login = (username, senha) => {
-        api.post('/conta/login', {
+    const login = async (username, senha) => {
+        await api.post('/conta/login', {
             username: username,
             senha: senha
         })
             .then((res) => {
                 setCookie('token', res.data.token)
+                console.log("fe")
                 navigate("/usuarios/conta")
                 window.location.reload()
 
@@ -46,9 +45,11 @@ const Login = () => {
                 //documnt.cookies = `token=${res.data.token}; HttpOnly`;
             })
             .catch((err) => {
-                setBtnLogin(false)
-                setError(err.response.data)
-                console.log(error)
+                setBtnLogin(false)  
+                console.log("err")
+                console.log(err)
+                setError(err.response.data.error)
+              
             })
     }
 
