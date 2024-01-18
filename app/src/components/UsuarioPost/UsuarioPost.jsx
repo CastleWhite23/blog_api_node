@@ -1,9 +1,9 @@
 
 import { api } from "../../services/api";
 import { Spinner } from '@chakra-ui/react'
-import CardPost from '../Card/Card'
 import { useEffect, useState } from 'react'
 import './style.css'
+import CardEditavel from "../CardEditavel/CardEditave";
 
 const Blogs = () => {
     //fazer requisição https para api
@@ -41,7 +41,7 @@ const Blogs = () => {
                     {
                         allPostLoaded ? (
                             postData.map(post => (
-                                <CardPost key={post.id_post}  key_post ={post.id_post} titulo={post.titulo_post} conteudo={post.conteudo_post} autor={post.autor_post} data_criacao={post.data_criacao} />
+                                <CardEditavel key={post.id_post}  key_post ={post.id_post} titulo={post.titulo_post} conteudo={post.conteudo_post} autor={post.autor_post} data_criacao={post.data_criacao} />
                             ))
                         ) : (
                             <Spinner size='lg' />
